@@ -8,3 +8,6 @@ class SecretGenerateInput(BaseModel):
     secret_message: str
     passphrase: Optional[str] = None
     ttl: TTL
+
+
+
