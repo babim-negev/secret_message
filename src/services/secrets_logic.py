@@ -24,8 +24,11 @@ def get_secret_message(secret_key: str, passphrase: str, db):
 
     if not secret:
         return None
-
-    if passphrase and not pbkdf2_sha256.verify(passphrase, secret.hashed_passphrase):
-        return None
+    
+    if secret.hashed_passphrase:
+        if not passphrase:
+            return None
+        if not pbkdf2_sha256.verify(passphrase, secret.hashed_passphrase):
+            return None
 
     return secret.message

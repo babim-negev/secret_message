@@ -8,7 +8,7 @@ from src.db.database import Base
 
 
 
-# TODO ДОПИСАТЬ BASE ИМПОРТ
+
 class Secret(Base):
     __tablename__ = 'secret_table'
 
@@ -17,12 +17,3 @@ class Secret(Base):
     hashed_passphrase = Column(String, nullable=True)
     create_date = Column(DateTime(timezone=True), default=func.now())
     TTL = Column(String)
-
-    @classmethod
-    def create_secret(cls, message: str, passphrase: str = None):
-        hashed_passphrase = None
-        if passphrase:
-            # Хешируем пароль, используя passlib
-            hashed_passphrase = pbkdf2_sha256.hash(passphrase)
-
-        return cls(message=message, hashed_passphrase=hashed_passphrase)
