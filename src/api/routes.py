@@ -1,5 +1,4 @@
 from fastapi import APIRouter, Depends
-from typing import Optional
 from src.api.schemas import SecretGenerateInput
 from src.services.secrets_logic import create_secret
 from src.services.secrets_logic import get_secret_message

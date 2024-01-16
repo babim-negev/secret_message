@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+
 import uvicorn
+from fastapi import FastAPI
 from api.routes import router as secret_router
 from src.db.database import Base, engine
 
