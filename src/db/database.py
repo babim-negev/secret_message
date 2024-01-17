@@ -1,15 +1,12 @@
-import os
-from dotenv import load_dotenv
 import psycopg2
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
-
-from src.api.settings import POSTGRES_URL,db_user,db_host,db_port,db_name,db_password
+from sqlalchemy.orm import sessionmaker
+from src.api.settings import POSTGRES_URL, db_user, db_host, db_port, db_name, db_password
 
 # ЗАГРУЖАЕМ ДАННЫЕ ИЗ .ENV
 load_dotenv()
-
 
 engine = create_engine(
     POSTGRES_URL, echo=True

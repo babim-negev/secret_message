@@ -1,12 +1,7 @@
 import uuid
 
-from passlib.hash import pbkdf2_sha256
 from sqlalchemy import Column, String, DateTime, func
-from sqlalchemy import Integer
-
 from src.db.database import Base
-
-
 
 
 class Secret(Base):
