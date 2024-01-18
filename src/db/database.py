@@ -3,10 +3,18 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
-from src.api.settings import POSTGRES_URL, db_user, db_host, db_port, db_name, db_password
+from src.api.settings import Settings, DbSettings
 
-# ЗАГРУЖАЕМ ДАННЫЕ ИЗ .ENV
-load_dotenv()
+settings = Settings()
+db = DbSettings()
+
+db_host = db.db_host
+db_port = db.db_port
+db_name = db.db_name
+db_user = db.db_user
+db_password = db.db_password
+
+POSTGRES_URL = settings.db.POSTGRES_URL
 
 engine = create_engine(
     POSTGRES_URL, echo=True
